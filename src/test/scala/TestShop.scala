@@ -50,28 +50,28 @@ class ShopTests extends TestCase {
 
   def testOrangeDiscount {
     assertEquals(
-      "One orange",
+      "One oranges",
       orange.price,
       Shop(orange.name :: Nil).calcTotal,
       DoubleMinVal
     )
 
     assertEquals(
-      "Two orange",
+      "Two oranges",
       orange.price * 2,
       Shop(orange.name :: orange.name :: Nil).calcTotal,
       DoubleMinVal
     )
 
     assertEquals(
-      "Three orange",
+      "Three oranges",
       orange.price * 2,
       Shop(orange.name :: orange.name :: orange.name :: Nil).calcTotal,
       DoubleMinVal
     )
 
     assertEquals(
-      "Four orange",
+      "Four oranges",
       orange.price * 3,
       Shop(orange.name :: orange.name :: orange.name :: orange.name :: Nil).calcTotal,
       DoubleMinVal
