@@ -14,15 +14,25 @@ class Shop {
   def calcDiscountApples: Double = {
     val apple = Shop.apple
     val apples = basket.count(_.name == apple.name)
-    if (apples > 0) {
+    if (apples > 0)
       (apples / 2.0).floor * apple.price
-    } else {
+    else
       0
-    }
+  }
+
+  // 3 for the price of 2 on Oranges
+  def calcDiscountOranges: Double = {
+    val orange = Shop.orange
+    val oranges = basket.count(_.name == orange.name)
+
+    if (oranges > 0)
+      (oranges / 3.0).floor * orange.price
+    else
+      0
   }
 
   def calcDiscount: Double = {
-    calcDiscountApples
+    calcDiscountApples + calcDiscountOranges
   }
 
   def calcTotalWithoutDiscount: Double = {

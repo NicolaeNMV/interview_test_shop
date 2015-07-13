@@ -14,7 +14,7 @@ class ShopTests extends TestCase {
   def testEmpty {
     val shop = new Shop()
 
-    assertEquals(0.0, shop.calcTotalWithoutDiscount, DoubleMinVal)
+    assertEquals(0.0, shop.calcTotal, DoubleMinVal)
   }
 
   def testNominalWithoutDiscount {
@@ -48,4 +48,33 @@ class ShopTests extends TestCase {
     )
   }
 
+  def testOrangeDiscount {
+    assertEquals(
+      "One orange",
+      orange.price,
+      Shop(orange.name :: Nil).calcTotal,
+      DoubleMinVal
+    )
+
+    assertEquals(
+      "Two orange",
+      orange.price * 2,
+      Shop(orange.name :: orange.name :: Nil).calcTotal,
+      DoubleMinVal
+    )
+
+    assertEquals(
+      "Three orange",
+      orange.price * 2,
+      Shop(orange.name :: orange.name :: orange.name :: Nil).calcTotal,
+      DoubleMinVal
+    )
+
+    assertEquals(
+      "Four orange",
+      orange.price * 3,
+      Shop(orange.name :: orange.name :: orange.name :: orange.name :: Nil).calcTotal,
+      DoubleMinVal
+    )
+  }
 }
